@@ -1,6 +1,7 @@
 import express from 'express'
 
 const app = express()
+app.use(express.json())
 
 //mock
 const selecoes = [
@@ -12,11 +13,16 @@ const selecoes = [
 
 //criar rota raiz
 app.get('/', (req, res) => {
-    res.send('Ola Pessoal')
+    res.send('Curso de NODE JS')
 })
 
 app.get('/selecoes', (req, res) => {
     res.status(200).send(selecoes)
+})
+
+app.post('/selecoes', (req, res) => {
+    selecoes.push(req.body)
+    res.status(201).send('Cadastrado com sucesso!')
 })
 
 export default app
