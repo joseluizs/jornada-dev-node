@@ -41,7 +41,14 @@ app.post('/selecoes', (req, res) => {
 app.delete('/selecoes/:id', (req, res) => {
     let index = buscarIndexSelecao(req.params.id)
     selecoes.splice(index, 1)
-    res.send('Deletado o ${req.params.id} com sucesso!')
+    res.send(`Deletado o ${req.params.id} com sucesso!`)
+})
+
+app.put('/selecoes/:id', (req, res) => {
+    let index = buscarIndexSelecao(req.params.id)
+    selecoes[index].selecao = req.body.selecao
+    selecoes[index].grupo = req.body.grupo
+    res.json(selecoes)
 })
 
 
