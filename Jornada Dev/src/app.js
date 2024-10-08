@@ -15,6 +15,11 @@ const selecoes = [
 function buscarSelecaoPorId(id) {
     return selecoes.filter(selecao => selecao.id == id)
 }
+
+//pegar a posição do elemento no array
+function buscarIndexSelecao(id) {
+    return selecoes.findIndex(selecao => selecao.id == id)
+}
 //criar rota raiz
 app.get('/', (req, res) => {
     res.send('Curso de NODE JS')
@@ -31,6 +36,12 @@ app.get('/selecoes/:id', (req, res) => {
 app.post('/selecoes', (req, res) => {
     selecoes.push(req.body)
     res.status(201).send('Cadastrado com sucesso!')
+})
+
+app.delete('/selecoes/:id', (req, res) => {
+    let index = buscarIndexSelecao(req.params.id)
+    selecoes.splice(index, 1)
+    res.send('Deletado o ${req.params.id} com sucesso!')
 })
 
 
