@@ -3,11 +3,9 @@ import routes from './routes.js'
 
 const app = express()
 
-//usar o router
-app.use(routes)
-
-
 app.use(express.json())
 
+//usar o router
+app.use(routes)
 
 export default app
