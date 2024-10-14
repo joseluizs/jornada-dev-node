@@ -10,3 +10,11 @@ npm run build
 npm test
 
 npm run eject
+
+#######################################
+projeto costs
+
+npx create-react-app costs
+
+instalando dependências do projeto
+npm i json-server react-icons react-router-dom uuid
