@@ -1,0 +1,12 @@
+
+criação do projeto react.js
+
+npx create-react-app my-projetct
+cd my-projetct
+npm start
+
+npm run build
+
+npm test
+
+npm run eject
